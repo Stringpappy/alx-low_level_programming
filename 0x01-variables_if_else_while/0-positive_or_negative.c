@@ -2,11 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 
-/**
- * main - Entry point
- * Retun: Always return the value  0 (success)
- */
-
+/*
+ * main - print when a number is positive or negativ 
+ * Return: alwaays return o (success */
 int main(void)
 {
 	int n;
@@ -21,9 +19,9 @@ int main(void)
 	{
 		printf("%d is zero\n", n);
 	}
-	else 
+	else
 	{
-		printf("%d is negative\n", n);
+		printf("%d is nrgative\n", n);
 	}
 	return (0);
 }
