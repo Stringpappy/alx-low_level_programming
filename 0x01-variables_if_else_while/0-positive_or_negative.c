@@ -2,9 +2,10 @@
 #include <time.h>
 #include <stdio.h>
 
-/*
+/**
  * main - print when a number is positive or negativ 
- * Return: alwaays return o (success */
+ * Return: alwaays 0 (success)
+ */
 int main(void)
 {
 	int n;
@@ -21,7 +22,7 @@ int main(void)
 	}
 	else
 	{
-		printf("%d is nrgative\n", n);
+		printf("%d is negative\n", n);
 	}
 	return (0);
 }
