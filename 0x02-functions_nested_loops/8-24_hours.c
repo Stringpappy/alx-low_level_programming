@@ -2,7 +2,7 @@
 
 /**
  * jack_bauer - Prints evey minute of the day of Jack
- * Return: ...
+ * Return: ++++
  */
 
 void jack_bauer(void)
@@ -26,5 +26,12 @@ void jack_bauer(void)
 	_putchar(h + '0');
 	_putchar('\n');
 	}
-}
+	}
+	}
+	}
+	}
+	}
+}	
+
+
 
