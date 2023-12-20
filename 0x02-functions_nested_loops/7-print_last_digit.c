@@ -4,7 +4,7 @@
  *
  * print_last_digit - printing last digit of a number
  * @n: Number to be treated
- * :return: The last digit value of a number
+ * Return: The last digit value of a number
  */
 
 int print_last_digit(int n)
