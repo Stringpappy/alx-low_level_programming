@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * _isalpha(int c)
+ * _isalpha - Is alpha
  * @c: for alphabet char 1 or for anything else 0
+ * Return: Always 0 (success)
  */
 int _isalpha(int c)
 {
