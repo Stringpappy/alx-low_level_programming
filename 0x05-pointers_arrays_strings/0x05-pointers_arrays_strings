@@ -1,0 +1,11 @@
+#include "main.h"
+
+/**
+ * _strcpy - copy a string
+ * @dest: copy to
+ * @serc: copy from
+ * Return : the pointer to dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+
