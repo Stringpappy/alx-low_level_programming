@@ -10,6 +10,7 @@
 int _strcmp(char *s1, char *s2)
 {
 	int x;
+	int flag;
 
 	x = 0;
 
@@ -17,9 +18,10 @@ int _strcmp(char *s1, char *s2)
 	{
 		if (s1[x] != s2[x])
 		{
-			return (s1[x] - s2[x]);
+			flag = (s1[x] - s2[x]);
+			break;
 		}
 		x++;
 	}
-	return (0);
+	return (flag);
 }
