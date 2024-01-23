@@ -1,13 +1,15 @@
 #include "main.h"
 
+
+
 /**
  * main - name of the programe
  * @argc: argument count
- * @argv:array of argument 
+ * @argv:array of argument
  * Return: 0
  */
-int main(int argc __attribute__((unsed)), *argv[])
+int main(int argc, char *argv[])
 {
-	printf("%s\n", *argv);
-	return(0);
+
+	return (0);
 }
