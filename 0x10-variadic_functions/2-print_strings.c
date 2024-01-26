@@ -21,13 +21,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 		if (str == NULL)
 		{
-			printf("nill");
+			printf("(nill)");
 		}
 		else
 		{
 			printf("%s", str);
 		}
-		if (count != (n - 1) && separator == NULL)
+		if (count != (n - 1) && separator != NULL)
 			printf("%s", separator);
 	}
 	printf("\n");
