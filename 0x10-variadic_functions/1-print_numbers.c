@@ -16,7 +16,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		i = va_arg(folder, const unsigned int);
 		printf("%d", i);
-			if (i != (n - 1) && separator != NULL)
+			if (count != (n - 1) && separator != NULL)
 			{
 				printf("%s", separator);
 			}
