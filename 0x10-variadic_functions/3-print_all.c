@@ -19,14 +19,14 @@ void print_all(const char * const format, ...)
 		{
 			switch (format[i])
 			{
+				case 'c':
+					printf("%s%c", sep, va_arg(folder, int));
+					break;
 				case 'i':
 					printf("%s%d", sep, va_arg(folder, int));
 					break;
 				case 'f':
 					printf("%s%f", sep, va_arg(folder, double));
-					break;
-				case 'c':
-					printf("%s%c", sep, va_arg(folder, int));
 					break;
 				case 's':
 					str = va_arg(folder, char *);
