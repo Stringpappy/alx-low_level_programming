@@ -10,7 +10,9 @@ void print_all(const char * const format, ...)
 	char *str, *sep = "";
 
 	va_list folder;
+
 	va_start(folder, format);
+
 	if (format)
 	{
 		while (format[i])
