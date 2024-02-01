@@ -11,9 +11,12 @@ list_t *add_node_end(list_t **head, const char *str)
 	unsigned int i, count = 0;
 
 	newnode = malloc(sizeof(list_t));
+	if (newnode == NULL)
+		return (NULL);
+	newnode->str = strdup(str);
 	for (i = 0; str[i] != '\0'; i++)
 		count++;
-	newnode->str = strdup(str);
+	newnode->len = count;
 	newnode->next = NULL;
 	point = *head;
 
