@@ -27,12 +27,6 @@ return (1);
 }
 
 _write = write(file, text_content, strlen(text_content));
-/*if (_write == -1 ||  _write !=  strlen(text_content))
-
-{
-close(file);
-return (-1);
-}*/
 if (_write == -1)
 {
 	close(file);
