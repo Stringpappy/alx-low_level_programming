@@ -10,7 +10,7 @@
 
 char *_strchr(char *s, char c)
 {
-	{
+	
         int start = 0;
 
         for (; (s[start] == c);)
