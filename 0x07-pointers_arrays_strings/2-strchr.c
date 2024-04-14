@@ -10,13 +10,14 @@
 
 char *_strchr(char *s, char c)
 {
-	int start = 0;
+	int i;
 
-	for (; (s[start] == c);)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[start] == c)
-
-			return (&s[start]);
-	}
-	return (0);
+		if (s[i] ==  c)
+		{
+			return i; // return the index if character is found
+		}
+    }
+    return -1; // return -1 if character is not found
 }
