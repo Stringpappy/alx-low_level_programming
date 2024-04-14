@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * pribt_most_numbers - check throug 9n func
- * Return : Always o
+ * print_most_numbers - check throug 9n func
+ * Return : Always 0
  */
 
 void print_most_numbers(void)
