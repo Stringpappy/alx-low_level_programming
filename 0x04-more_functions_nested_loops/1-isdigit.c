@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isdigit -check for digit
+ * _isdigit - func check for digit
  * @c: check  integer
  * Return: return 1 if c is digit else return 0
  */
