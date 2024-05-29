@@ -1,0 +1,15 @@
+#avance makefile
+CC = gcc
+SRC = main.c
+OBJ = ${SRC: %.C=%.o}
+NAME = school
+RM = rm -f
+all: ${OBJ}
+	${CC} ${OBJ} -o ${NAME}
+clean:
+	${RM} *~ ${NAME}
+oclean:
+	${RM} * ${OBJ}
+fclean: clean oclean
+re:c fclean all
+
