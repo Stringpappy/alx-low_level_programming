@@ -4,7 +4,7 @@ SRC = main.c
 OBJ = ${SRC: %.C=%.o}
 NAME = school
 RM = rm -f
-CFLAGS = -wALL -werror -wextra - pendantic
+CFLAGS = -Wall -Werror -Wextra -pedantic
 all: ${OBJ}
 	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 clean:
