@@ -4,5 +4,6 @@ SRC = main.c
 OBJ = ${SRC: %.C=%.o}
 NAME = school
 
+
 all: ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
