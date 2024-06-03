@@ -1,7 +1,9 @@
 #useful makefile
+
+
 CC = gcc
-SRC = main.c
-OBJ = ${SRC: %.C=%.o}
+SRC = main.c school.c
+OBJ = ${SRC:%. c=%.o}
 NAME = school
 
 

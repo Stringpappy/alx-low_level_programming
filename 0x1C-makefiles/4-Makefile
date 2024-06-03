@@ -1,7 +1,7 @@
-#avance makefile
+#advance makefile
 CC = gcc
-SRC = main.c
-OBJ = ${SRC: %.C=%.o}
+SRC = main.c school.c
+OBJ = ${SRC:%.c=%.o}
 NAME = school
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -pedantic
@@ -10,6 +10,6 @@ all: ${OBJ}
 clean:
 	${RM} *~ ${NAME}
 oclean:
-	${RM} * ${OBJ}
+	${RM}  ${OBJ}
 fclean: clean oclean
-re:c fclean all
+re: fclean all
