@@ -1,17 +1,23 @@
+
 #include "main.h"
 #include <stdio.h>
+
+
 /**
  * main - func that run c prog
- * Return:0
+ *
+ * Return:Always 0
  */
 int main (void)
 {
 	int number, num;
 
+
 	number =  100;
+
 	for (num = 1; num <= number; num++)
 	{
-		if (num % 3 == 0 &&  num % 5 == 0)
+		if (num % 3 == 0 && num % 5 == 0)
 		{
 			printf("FizzBuzz");
 		}
