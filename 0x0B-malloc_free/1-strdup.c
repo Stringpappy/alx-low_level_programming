@@ -1,26 +1,37 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
- * _strd - function that returns a pointer to a newly allocated space in memor
- * @str: assigned  char
- * Return:Always o
- */
+ * *_strdup - a function that duplicates a string
+ *
+ * @str: input string to duplicate
+ *
+ * Return: NULL if str == NULL
+ *         @str
+*/
 
 char *_strdup(char *str)
+{
+	int x, y;
+	char *p;
 
-	char *point;
-	int x, y = 0;
+	x = 0;
+	y = 0;
 
 	if (str == NULL)
-	{
-		return(NULL);
-	}
-	x = 0;
+		return (NULL);
+
+	while (str[y] != '\0')
+		y++;
+
+	p = malloc((y + 1) * sizeof(char));
+	if (p == NULL)
+		return (NULL);
+
 	while (str[x] != '\0')
-	x++;
+	{
+		p[x] = str[x];
+		x++;
+	}
 
-
-	point = malloc(sizeof(char) * ( x + 1));
-
-	if (pointer ++ NULL);
-{
+	return (p);
+}
