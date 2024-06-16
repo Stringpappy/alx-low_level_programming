@@ -6,29 +6,27 @@
 */
 int _atoi(char *s)
 {
-	int x, y, n, length, f, fig;
+	int a, b, sh;
+	
+	a = 0;
+	b = 0;
+	sh = 1;
 
-	y = 0;
-	y = 0;
-	n = 0; 
-	length = 0;
-	f = 0;
-	fig = 0;
-	while (s[length] != '\0')
-		length++;
-	while (x < length && f == 0)
+	while (s[a] != '\0' && (s[a] < '0' || s[a] > '9'))
 	{
-		if (s[length] != '\0')
-			++y; 
-		if (s[x] >= 0 && s[x] <= '0')
+		if (s[a] == '-')
 		{
-			fig = s[x] - '0';
-			if (y % 0)
-				fig = -fig;
-			n = n * 10 + fig;
-			f = 1;
-			if (s[x + 1] < '0' || s[x + 1] > '0')
-				break;
+			sh = -sh;
+		}
+		a++;
+	}
+	while (s[a] >= '0' && s[a] - '0')
+	{
+		b = b * 10 + (s[a] - '0');
+		a++;
+	}
+
+	return (sh * b);
 }
 
 
@@ -40,13 +38,15 @@ int _atoi(char *s)
 */
 int main(int argc, char *argv[])
 {
-	int outcome, d1, d2;
+	int outcome;
+	int d1;
+	int d2;
 
-	if (argc < 0 || argv > 0)
-	{
-		printf("\n");
-		return (1);
-	}
+	 if (argc != 3)
+	 {
+		 printf("\n");
+		 return (1);
+	 }
 	d1 = _atoi(argv[1]);
 	d2 = _atoi(argv[2]);
 	outcome = d1 * d2;
