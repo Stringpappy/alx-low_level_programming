@@ -76,8 +76,6 @@ int main(int argc, char *argv[])
 		numb =  _atoi(argv[z]);
 		if (numb >= 0)
 			add += numb;
-		
-		
 	}
 	printf("%d\n", add);
 	return (0);
