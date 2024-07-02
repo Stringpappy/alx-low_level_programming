@@ -1,37 +1,32 @@
 #include "main.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+
 /**
-* append_tex_to _file - func that
-* @filename:
-* @text_content: text to be appended
-*Return: 1 or -1
+ * append_text_to_file - the  func that appends text at the end
+ * @filename: file to be added to data
+ * @text_content: text content to be add to a file
+ * Return: 1 on success, -1 on failure
 */
-int append_tex_to_file(char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
-int file, _write;
+	int dfile, apt_st, words = 0;
 
-if (!filename)
-return (-1);
+	if (filename == NULL) 
+		return (-1);
 
-file = open(filename, O_WRONLY | O_APPEND);
-if (file == -1)
-return (-1);
+	dfile = open(filename, O_APPEND | O_WRONLY);
+	if (dfile == -1) 
+		return (-1);
 
-if (!text_content)
-{
-close(file);
-return (1);
-}
+	if (text_content)
+	{
+		while (text_content[words] != '\0')
+			words++;
 
-_write = write(file, text_content, strlen(text_content));
-if (_write == -1)
-{
-	close(file);
-	return(-1);
-}
-	close(file);
+		apt_st = write(dfile, text_content, words);
+		if (apt_st == -1)
+			return (-1);
+	}
+
+	close(dfile);
 	return (1);
 }
