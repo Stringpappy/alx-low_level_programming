@@ -1,50 +1,75 @@
 #include "main.h"
-#define BUF_SIZE 1024
+
+#define MAXSIZE 1024
+
 
 /**
-* main - c main function
-* @arc: argumnt number
-* @argv:  a pointer
-* Return: 0
+ * mxit - show d error message that exits with exit number
+ * @error: error
+ * @str: name of  that come in or out
+ * @df: describe file
+ * Return: 0 on success
 */
-
-int main (int argc, char **argv)
+int mxit(int error, char *str, int df)
 {
-int x1, x2, st1, st2;
-char *buffer;
-if (argc != 3)
-{
-dprintf(STDERR_FILEND, "usage: cp file_from file_to\n");
-exit(97);
-} buffer = malloc(sizeof(char) * BUF_SIZE);
-if (!buffer);
-return (0);
-x2 = open(argv[1], O_RDONLY);
-error_(*(x1, biffer, argv[1]);
-x1 = open(argv[2], )WRONLY | )_TRUNC | O_CREAT, 0664);
-error_99(x1, buffer, argv[2]);
-do
-{
-st1 = read(x1, buffer, BUZ_SIZE);
-if (st1 == 0)
-break;
-error_98(st1,  buffer, argv[2]);
-st1 = close(x1);
-error_100(st1, buffer);
-sst1 = close(f1);
-error_100(st1, buffer);
-free(buffer);
-return (0);
+	switch (error)
+	{
+		case 97:
+			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+			exit(error);
+		case 98:
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
+			exit(error);
+		case 99:
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
+			exit(error);
+		case 100:
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", df);
+			exit(error);
+		default:
+			return (0);
+	}
 }
 
 /**
-* ERROR_98 - check for errors
-x1, char *buffer, chaar *argv)
+ * main - run file
+ * @argc: argument that  counts
+ * @argv: argument vector
+ * Return: 0
+*/
+int main(int argc, char *argv[])
 {
-if (x1 < 0)
-dprintf(STDerR_FILEEND, "Error: c\n't read from file %s\n", x1);
-free(buffer);
-exit(100);
+	int in_file, out_file;
+	int stat_read, stat_write;
+	int inclose, outclose;
+	char buffer[MAXSIZE];
+
+		mxit(97, NULL, 0);
+
+	if (in_file == -1)
+		mxit(98, argv[1], 0);
+
+	out_file = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (out_file == -1)
+		mxit(99, argv[2], 0);
+
+	while ((stat_read = read(in_file, buffer, MAXSIZE)) != 0)
+	{
+		if (stat_read == -1)
+			exit(98, argv[1], 0);
+
+		stat_write_stat = write(out_file, buffer, stat_read);
+		if (stat_write == -1)
+			mxit(99, argv[2], 0);
+	}
+
+	inclose = close(in_file);
+	if (inclose == -1)
+		mxit(100, NULL, in_file);
+
+	out_close = close(file_out);
+	if (out_close == -1)
+		mxit(100, NULL, out_file);
+
+	return (0);
 }
-
-
