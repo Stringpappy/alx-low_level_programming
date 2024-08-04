@@ -1,75 +1,72 @@
 #include "main.h"
-
-#define MAXSIZE 1024
-
+#include <stdio.h>
 
 /**
- * mxit - show d error message that exits with exit number
- * @error: error
- * @str: name of  that come in or out
- * @df: describe file
- * Return: 0 on success
-*/
-int mxit(int error, char *str, int df)
+ * error_file - the func that checks if files can be opened.
+ * @file_from: file_from.
+ * @file_to: to_file
+ * @argv: arguments vector.
+ * Return: 0
+ */
+void error_file(int file_from, int file_to, char *argv[])
 {
-	switch (error)
+	if (file_from == -1)
 	{
-		case 97:
-			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-			exit(error);
-		case 98:
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-			exit(error);
-		case 99:
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-			exit(error);
-		case 100:
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", df);
-			exit(error);
-		default:
-			return (0);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 }
 
 /**
- * main - run file
- * @argc: argument that  counts
- * @argv: argument vector
- * Return: 0
-*/
+ * main - the func that check the code for Holberton School students.
+ * @argcarguments count.
+ * @argv: arguments param.
+ * Return: Always 0.
+ */
 int main(int argc, char *argv[])
 {
-	int in_file, out_file;
-	int stat_read, stat_write;
-	int inclose, outclose;
-	char buffer[MAXSIZE];
+	int file_from, file_to, close_err;
+	ssize_t nchars, frh;
+	char buf[1024];
 
-		mxit(97, NULL, 0);
-
-	if (in_file == -1)
-		mxit(98, argv[1], 0);
-
-	out_file = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (out_file == -1)
-		mxit(99, argv[2], 0);
-
-	while ((stat_read = read(in_file, buffer, MAXSIZE)) != 0)
+	if (argc != 3)
 	{
-		if (stat_read == -1)
-			exit(98, argv[1], 0);
-
-		stat_write_stat = write(out_file, buffer, stat_read);
-		if (stat_write == -1)
-			mxit(99, argv[2], 0);
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+		exit(97);
 	}
 
-	inclose = close(in_file);
-	if (inclose == -1)
-		mxit(100, NULL, in_file);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	error_file(file_from, file_to, argv);
 
-	out_close = close(file_out);
-	if (out_close == -1)
-		mxit(100, NULL, out_file);
+	nchars = 1024;
+	while (nchars == 1024)
+	{
+		nchars = read(file_from, buf, 1024);
+		if (nchars == -1)
+			error_file(-1, 0, argv);
+		frh = write(file_to, buf, nchars);
+		if (frh == -1)
+			error_file(0, -1, argv);
+	}
 
+	close_err = close(file_from);
+	if (close_err == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",file_from);
+		exit(100);
+	}
+
+	close_err = close(file_to);
+	if (close_err == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
 	return (0);
 }
