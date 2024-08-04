@@ -24,7 +24,7 @@ void error_file(int file_from, int file_to, char *argv[])
 
 /**
  * main - the func that check the code for Holberton School students.
- * @argcarguments count.
+ * @argc: arguments count.
  * @argv: arguments param.
  * Return: Always 0.
  */
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 	close_err = close(file_from);
 	if (close_err == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 
