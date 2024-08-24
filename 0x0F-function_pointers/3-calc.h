@@ -1,5 +1,5 @@
 #ifndef CALC_H
-#define _CALC_H
+#define CALC_H
 
 #include <stddef.h>
 #include <stdio.h>
