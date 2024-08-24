@@ -1,26 +1,33 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
- * get_op_fun - selects the correct function to perform the operation
- * @s: operator passed as argument
- * Return: always 0
+ * get_op_func - Selects the appropriate function to perform the specified
+ *               arithmetic operation based on the user-provided operator.
+ * @s: The operator as a string (e.g., "+", "-", "*", "/", "%").
+ *
+ * Return: A pointer to the function that performs the operation corresponding
+ *         to the provided operator. Returns NULL if the operator is not found.
  */
 int (*get_op_func(char *s))(int, int)
 {
-	option ops[]={
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
-		{NULL, NULL},
-	}
+		{NULL, NULL}
+	};
 	int i;
 
 	i = 0;
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
+
+	while (ops[i].op)
+	{
+		if (strcmp(ops[i].op, s) == 0)
+			return (ops[i].f);
 		i++;
-	return (ops[i].f);
+	}
+
+	return (NULL);
 }
+

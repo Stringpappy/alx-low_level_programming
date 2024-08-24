@@ -1,66 +1,57 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * op_add - sum of two numbers
- * @a:first num
- * @b: second num
- * Return: Always a + b
+ * op_add - The func that calculates the sum of two integers
+ * @a: integer 1
+ * @b: integer 2
+ *
+ * Return: a+ b
  */
 int op_add(int a, int b)
 {
-	int add;
-
-	add = a + b;
-	return (add);
+	return (a + b);
 }
 
 /**
- * op_sub - subtraction  of two numbers
- * @a:first num
- * @b: second num
- * Return: Always a - b
+ * op_sub - The func that calculates the difference of two integers
+ * @a: integer 1
+ * @b: integer 2
+ * Return: a - b
  */
-
-int  op_sub(int a, int b)
+int op_sub(int a, int b)
 {
-	int sub;
-	sub = a - b;
-	return (sub);
+	return (a - b);
 }
 
-
 /**
- * op_mul  - multiplication of two numbers
- * @a:first num
- * @b: second num
- * Return: Always a * b
+ * op_mul - The func that calculates the product of two integers
+ * @a: integer 1
+ * @b: integer 2
+ * Return: a * b
  */
 int op_mul(int a, int b)
 {
-	return (a *b);
+	return (a * b);
 }
 
-
 /**
- * op_div - division of two numbers
- * @a:first num
- * @b: second num
- * Return: Always a / b
+ * op_div - The func that calculates the division of two integers
+ * @a: integer 1
+ * @b: integer 2
+ * Return: a - b
  */
 int op_div(int a, int b)
-	{
+{
 	return (a / b);
 }
 
 /**
- * op_div - division of two numbers
- * @a:first num
- * @b: second num
- * Return: Always a / b
+ * op_mod - The func that calculates the remainder of the division of two int
+ * @a: first integer
+ * @b: second integer
+ * Return: remainder of a divided b
  */
 int op_mod(int a, int b)
 {
-	return( a % b);
+	return (a % b);
 }
