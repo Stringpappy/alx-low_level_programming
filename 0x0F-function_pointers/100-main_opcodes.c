@@ -16,33 +16,30 @@
  */
 int main(int argc, char *argv[])
 {
-    int num_bytes, index;
-    char *opcode_ptr;
+	int num_bytes, index;
+	char *opcode_ptr;
 
-    if (argc != 2)
-    {
-        printf("Error\n");
-        exit(1);
-    }
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-    num_bytes = atoi(argv[1]);
-
-    if (num_bytes < 0)
-    {
-        printf("Error\n");
-        exit(2);
-    }
-
-    opcode_ptr = (char *)main;
-
-    for (index = 0; index < num_bytes; index++)
-    {
-        if (index == num_bytes - 1)
-        {
-            printf("%02hhx\n", opcode_ptr[index]);
-            break;
-        }
-        printf("%02hhx ", opcode_ptr[index]);
-    }
-    return (0);
+	num_bytes = atoi(argv[1]);
+	if (num_bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+	opcode_ptr = (char *)main;
+	for (index = 0; index < num_bytes; index++)
+	{
+		if (index == num_bytes - 1)
+		{
+			printf("%02hhx\n", opcode_ptr[index]);
+			break;
+		}
+		printf("%02hhx ", opcode_ptr[index]);
+	}
+	return (0);
 }
